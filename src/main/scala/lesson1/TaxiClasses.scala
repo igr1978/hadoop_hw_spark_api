@@ -1,3 +1,5 @@
+package lesson1
+
 object TaxiClasses {
 
   case class TaxiZone(LocationID: Int,

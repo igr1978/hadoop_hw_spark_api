@@ -1,3 +1,5 @@
+package lesson1
+
 import org.apache.log4j.{Level, Logger}
 import org.apache.spark.sql.functions.broadcast
 import org.apache.spark.sql.{DataFrame, SaveMode, SparkSession}

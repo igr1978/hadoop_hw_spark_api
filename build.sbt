@@ -4,11 +4,32 @@ version := "0.1"
 
 scalaVersion := "2.12.13"
 
-// https://mvnrepository.com/artifact/org.apache.spark/spark-sql
-libraryDependencies += "org.apache.spark" %% "spark-sql" % "3.0.2"
+val sparkVersion = "3.1.1"
+val scalaTestVersion = "3.2.7"
 
-// https://mvnrepository.com/artifact/org.postgresql/postgresql
-libraryDependencies += "org.postgresql" % "postgresql" % "42.2.19"
+libraryDependencies ++= Seq(
+  "org.apache.spark" %% "spark-sql" % sparkVersion,
+  "org.apache.spark" %% "spark-sql" % sparkVersion % Test,
+  "org.apache.spark" %% "spark-sql" % sparkVersion % Test classifier "tests",
+  "org.apache.spark" %% "spark-catalyst" % sparkVersion % Test,
+  "org.apache.spark" %% "spark-catalyst" % sparkVersion % Test classifier "tests",
+//  "org.apache.spark" %% "spark-hive" % sparkVersion % Test,
+//  "org.apache.spark" %% "spark-hive" % sparkVersion % Test classifier "tests",
+  "org.apache.spark" %% "spark-core" % sparkVersion,
+  "org.apache.spark" %% "spark-core" % sparkVersion % Test,
+  "org.apache.spark" %% "spark-core" % sparkVersion % Test classifier "tests",
+)
 
-// https://mvnrepository.com/artifact/joda-time/joda-time
-libraryDependencies += "joda-time" % "joda-time" % "2.10.10"
+libraryDependencies ++= Seq(
+//  "org.scalactic" %% "scalactic" % scalaTestVersion,
+  "org.scalatest" %% "scalatest" % scalaTestVersion,
+  "org.scalatest" %% "scalatest" % scalaTestVersion % Test,
+//  "org.scalatest" %% "scalatest-suite" % scalaTestVersion % Test,
+  "org.scalacheck" %% "scalacheck" % "1.15.3",
+  "org.scalacheck" %% "scalacheck" % "1.15.3" % Test,
+  "org.postgresql" % "postgresql" % "42.2.19",
+//  "org.scalikejdbc" %% "scalikejdbc" % "3.5.0",
+//  "org.scalikejdbc" %% "scalikejdbc" % "3.5.0" % Test,
+  "com.dimafeng" %% "testcontainers-scala-postgresql" % "0.39.3" % Test,
+  "com.dimafeng" %% "testcontainers-scala-scalatest" % "0.39.3" % Test
+)
