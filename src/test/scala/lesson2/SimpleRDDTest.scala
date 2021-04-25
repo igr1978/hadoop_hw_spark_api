@@ -17,7 +17,7 @@ class SimpleRDDTest extends AnyFlatSpec{
       .map(x => x.split(" "))
       .collect()
 
-    assert(result.size > 0)
+    assert(result.length > 0)
     assert(result.take(10).length === 10)
     assert(result.take(1)(0) === Array("20:27", "408"))
   }
